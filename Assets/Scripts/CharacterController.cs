@@ -15,14 +15,12 @@ public class CharacterControllerScript : MonoBehaviour
     public GameObject bullet;
     public float bulletForce;
 
-    // Start is called before the first frame update
     void Start()
     {
         userCharacter = GetComponent<CharacterController>();
         cameraTransform = Camera.main.transform;
     }
 
-    // Update is called once per frame
     void Update()
     {
         Vector2 userControl = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
@@ -39,15 +37,4 @@ public class CharacterControllerScript : MonoBehaviour
             bulletforce.AddForce(bulletStart.forward * Time.deltaTime * bulletForce, ForceMode.Impulse);
         }
     }
-
-    //void OnCollisionEnter(Collision collision)
-    //{
-    //    // Verificar si la colisión ocurrió con el prefab de la esfera
-    //    Debug.Log("Enemy Unfrozen2");
-    //    if (collision.gameObject.CompareTag("Shadow"))
-    //    {
-    //        Debug.Log("Enemy Unfrozen");
-    //        SceneManager.LoadScene("DeadScene");
-    //    }
-    //}
 }
